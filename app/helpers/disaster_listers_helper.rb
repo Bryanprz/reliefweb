@@ -1,0 +1,2 @@
+module DisasterListersHelper
+end

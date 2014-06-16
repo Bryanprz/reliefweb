@@ -1,0 +1,23 @@
+<h1>Listing disaster_listers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disaster_listers.each do |disaster_lister| %>
+      <tr>
+        <td><%= link_to 'Show', disaster_lister %></td>
+        <td><%= link_to 'Edit', edit_disaster_lister_path(disaster_lister) %></td>
+        <td><%= link_to 'Destroy', disaster_lister, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disaster lister', new_disaster_lister_path %>
