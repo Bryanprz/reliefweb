@@ -1,4 +1,5 @@
-<h1>Listing disaster_listers</h1>
+<h1>Listing Disasters</h1>
+<%= @disasters %>
 
 <table>
   <thead>
@@ -8,11 +9,9 @@
   </thead>
 
   <tbody>
-    <% @disaster_listers.each do |disaster_lister| %>
+    <% @disasters['data'].each do |hash| %>
       <tr>
-        <td><%= link_to 'Show', disaster_lister %></td>
-        <td><%= link_to 'Edit', edit_disaster_lister_path(disaster_lister) %></td>
-        <td><%= link_to 'Destroy', disaster_lister, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= hash['fields']['name'] %></td>
       </tr>
     <% end %>
   </tbody>

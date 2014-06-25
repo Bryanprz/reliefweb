@@ -6,12 +6,18 @@ class DisasterListersController < ApplicationController
   def index
     @disaster_listers = DisasterLister.all
 
-    response = Unirest::get "https://community-relief-web.p.mashape.com/resports?offset=%3Coffset%3E&limit=%3Climit%3E&query%3E&sort=%3Csort%E",
-      headers: {
-        "X-Mashape-Authorization" => "pHwhyFNyrYWKuPDsDnFgQ2MgzE97I1ZZ"
-      }
+    response = Unirest::get "https://community-relief-web.p.mashape.com/disasters", 
+  headers: { 
+    "X-Mashape-Authorization" => "pHwhyFNyrYWKuPDsDnFgQ2MgzE97I1ZZ"
+  }
+      @disasters = response.body
 
-      
+      # response.body is made up of hash keys and values.
+      # The hash key "data" has an array as its value. That array is made up of hashes.
+      # Inside those hashes, there is a "fields" key which itself points to another hash. 
+      # The hash that "fields" points to has "name" as its key.
+      # The value of "name" is the actual title of the disaster. This is the value we want. 
+
   end
 
   # GET /disaster_listers/1
