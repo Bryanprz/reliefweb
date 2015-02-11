@@ -3,15 +3,26 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Date</th>
+      <th>ID</th>
+      <th>Title</th>
       <th>Country</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-<%= @disasters %>
+
+  <%= @disasters %>
+
   <tbody>
+    <% @disasters.each do |disaster| %>
+      <tr>
+        <td><%= disaster[:id] %></td>
+        <td><%= disaster[:fields][:title] %></td>
+        <td><%= link_to 'Show', disaster[:href] %></td>
+        <td><%= link_to 'Edit', edit_disaster_path(disaster) %></td>
+        <td><%= link_to 'Destroy', disaster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
