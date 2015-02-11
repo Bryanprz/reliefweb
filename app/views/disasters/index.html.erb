@@ -1,4 +1,4 @@
-<h1>Listing disasters</h1>
+<h1>Ten Most Recent Disasters</h1>
 
 <table>
   <thead>
@@ -19,8 +19,6 @@
         <td><%= disaster[:id] %></td>
         <td><%= disaster[:fields][:title] %></td>
         <td><%= link_to 'Show', disaster[:href] %></td>
-        <td><%= link_to 'Edit', edit_disaster_path(disaster) %></td>
-        <td><%= link_to 'Destroy', disaster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
